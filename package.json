@@ -1,0 +1,22 @@
+{
+  "name": "shipit-deploy-hg",
+  "version": "0.0.1",
+  "description": "Shipit deployment script using mercurial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shipit",
+    "deploy"
+  ],
+  "author": "Alexander Bogdanov <andorn@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "lodash": "^4.17.10",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.22.2",
+    "shipit-utils": "^1.4.0"
+  }
+}
