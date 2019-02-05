@@ -13,10 +13,10 @@
   "author": "Alexander Bogdanov <andorn@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^2.4.1",
-    "lodash": "^4.17.10",
+    "chalk": "^2.4.2",
+    "lodash": "^4.17.11",
     "mkdirp": "^0.5.1",
-    "moment": "^2.22.2",
-    "shipit-utils": "^1.4.0"
+    "moment": "^2.24.0",
+    "shipit-utils": "^1.4.1"
   }
 }
