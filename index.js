@@ -3,7 +3,7 @@ const fs = require('fs');
 const shipitUtils = require('shipit-utils');
 const moment = require('moment');
 const mkdirp = require('mkdirp');
-const { get, isEqual } = require('lodash');
+const { get, has, isEqual } = require('lodash');
 const chalk = require('chalk');
 
 /*****
@@ -46,7 +46,11 @@ function mkdir(path, opts) {
 }
 
 function getConfig(shipit, path, defaultVal) {
-    return get(shipit.config.deploy, path, defaultVal);
+    if (has(shipit.config.deploy, path)) {
+        return get(shipit.config.deploy, path, defaultVal);
+    } else {
+        return get(shipit.config, path, defaultVal);
+    }
 }
 
 function getWorkspace(shipit) {
@@ -202,7 +206,9 @@ function fetchTask(shipit) {
                 throw new Error("workspace isn't clean");
             }
 
-            await shipit.local('hg pull -u', { cwd: workspacePath });
+            const bookmark = getConfig('bookmark', '');
+            await shipit.local('hg pull', { cwd: workspacePath });
+            await shipit.local(`hg update ${bookmark}`, { cwd: workspacePath });
         })
     );
 }
