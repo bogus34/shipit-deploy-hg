@@ -206,7 +206,7 @@ function fetchTask(shipit) {
                 throw new Error("workspace isn't clean");
             }
 
-            const bookmark = getConfig('bookmark', '');
+            const bookmark = getConfig(shipit, 'bookmark', '');
             await shipit.local('hg pull', { cwd: workspacePath });
             await shipit.local(`hg update ${bookmark}`, { cwd: workspacePath });
         })
